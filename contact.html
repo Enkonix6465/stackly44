@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <div id="loader">
+<div id="loader">
     <div class="spinner"></div>
 </div>
 
@@ -222,10 +222,10 @@
   /* Neon Glow Heading */
   .ai-glow {
     text-shadow:
-      0 0 1px #00f7ff,
-      0 0 1px #00f7ff,
-      0 0 1px #00f7ff,
-      0 0 1px #00f7ff;
+      0 0 1px #ff6b35,
+      0 0 1px #ff6b35,
+      0 0 1px #ff6b35,
+      0 0 1px #ff6b35;
     color: #ffffff;
   }
 
@@ -549,9 +549,9 @@
   </div>
 
   <div class="fancy-contact-image">
-    <img src="https://i.pinimg.com/736x/a0/d5/b9/a0d5b9c93d0f860e4bf1940c04e94fa2.jpg" alt="Contact Us">
+    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop&crop=center" alt="Contact Us">
     <div>
-      <h2 data-i18n="letsTalk">Let’s Talk</h2>
+      <h2 data-i18n="letsTalk">Let's Talk</h2>
       <p class="contact-intro" data-i18n="contactIntro">
         Have questions ? Our team is ready to help. Fill out the form below and we'll respond within 24 hours.
       </p>
@@ -776,6 +776,28 @@
   margin-bottom: 30px;
 }
 
+/* Full Width FAQ Layout */
+.faq-full-width {
+  width: 100%;
+  max-width: 100%;
+}
+
+.faq-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.faq-content h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.faq-content p {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 /* FAQ Cards */
 .faq-item {
   background: white;
@@ -784,6 +806,7 @@
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
 }
 
 .faq-item:hover {
@@ -804,6 +827,47 @@
   color: #0b1945;
 }
 
+/* Mobile adjustments for FAQ */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 40px 15px;
+  }
+  
+  .faq-content {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  .faq-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .faq-content p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .faq-item {
+    padding: 15px 20px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .faq-content p {
+    font-size: 0.95rem;
+  }
+  
+  .faq-item {
+    padding: 12px 15px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .content-layout {
@@ -820,9 +884,9 @@
 <!-- Section : 5 -->
 <section class="testimonials-section section-padding faq-section">
   <div class="container">
-    <div class="content-layout reverse">
-      <!-- Left Content -->
-      <div class="content-text">
+    <div class="faq-full-width">
+      <!-- FAQ Content -->
+      <div class="faq-content">
         <h2 class="animate-fade-up" data-i18n="faqTitle">Frequently Asked Questions</h2>
         <p class="text-justify animate-fade-up delay-1" data-i18n="faqIntro">
           Find quick answers to common questions about our charity, donations, volunteering, and support programs. 
@@ -844,11 +908,6 @@
             <span data-i18n="faqA2">A: Yes, we welcome volunteers for our food drives, community programs, fundraising events, and awareness campaigns. You can register as a volunteer through our contact page.</span>
           </blockquote>
         </div>
-      </div>
-
-      <!-- Right Image -->
-      <div class="content-image animate-slide-in delay-2">
-        <img src="https://images.pexels.com/photos/5428830/pexels-photo-5428830.jpeg" alt="Charity FAQ">
       </div>
     </div>
   </div>
@@ -1388,7 +1447,7 @@ body.dark-mode .toggle-btn {
 }
 
 body.dark-mode .avatar-circle {
-  background: #00f7ff !important;
+  background: #ff6b35 !important;
   color: #181a20 !important;
 }
 
@@ -1412,24 +1471,33 @@ body.dark-mode .fancy-contact-image img {
 
 body.dark-mode .fancy-contact-form h2,
 body.dark-mode .fancy-contact-image h2 {
-  color: #00f7ff !important;
+  color: #ff6b35 !important;
+}
+
+body.dark-mode .fancy-contact-form label {
+  color: #e0e0e0 !important;
 }
 
 body.dark-mode .fancy-contact-form input,
 body.dark-mode .fancy-contact-form textarea {
   background: #181a20 !important;
   color: #e0e0e0 !important;
-  border-color: #00f7ff !important;
+  border-color: #ff6b35 !important;
+}
+
+body.dark-mode .fancy-contact-form input::placeholder,
+body.dark-mode .fancy-contact-form textarea::placeholder {
+  color: #b0b0b0 !important;
 }
 
 body.dark-mode .fancy-contact-form button {
-  background: #00f7ff !important;
+  background: #ff6b35 !important;
   color: #181a20 !important;
 }
 
 body.dark-mode .fancy-contact-form button:hover {
   background: #181a20 !important;
-  color: #00f7ff !important;
+  color: #ff6b35 !important;
 }
 
 body.dark-mode .features-section,
@@ -1442,15 +1510,15 @@ body.dark-mode .feature-card {
 
 body.dark-mode .feature-card h3,
 body.dark-mode .features-section h2 {
-  color: #00f7ff !important;
+  color: #ff6b35 !important;
 }
 
 body.dark-mode .feature-icon {
-  color: #00f7ff !important;
+  color: #ff6b35 !important;
 }
 
 body.dark-mode .feature-card strong {
-  color: #00f7ff !important;
+  color: #ff6b35 !important;
 }
 
 body.dark-mode .stats-section,
@@ -1461,7 +1529,7 @@ body.dark-mode .stat-item {
 }
 
 body.dark-mode .stat-number {
-  color: #00f7ff !important;
+  color: #ff6b35 !important;
 }
 
 body.dark-mode .stat-label {
@@ -1477,7 +1545,7 @@ body.dark-mode .faq-item {
 
 body.dark-mode .faq-item strong,
 body.dark-mode .faq-section h2 {
-  color: #00f7ff !important;
+  color: #ff6b35 !important;
 }
 
 body.dark-mode .faq-item blockquote {
@@ -1492,10 +1560,18 @@ body.dark-mode .map-container {
 }
 
 body.dark-mode .map-section .section-header h2 {
-  color: #00f7ff !important;
+  color: #ff6b35 !important;
 }
 
 body.dark-mode .map-section .section-header p {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .features-section p {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .faq-section p {
   color: #e0e0e0 !important;
 }
 
@@ -1510,7 +1586,7 @@ body.dark-mode .footer-bottom {
 body.dark-mode .footer-section h3,
 body.dark-mode .footer-section h4,
 body.dark-mode .footer-bottom p {
-  color: #00f7ff !important;
+  color: #ff6b35 !important;
 }
 
 body.dark-mode .footer-section ul li,
@@ -1520,6 +1596,28 @@ body.dark-mode .footer-section ul li a {
 
 body.dark-mode .social-links a {
   color: #e0e0e0 !important;
+}
+
+/* Additional dark mode improvements */
+body.dark-mode .ai-hero-overlay {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+body.dark-mode .fancy-contact-section {
+  background-color: #181a20 !important;
+}
+
+body.dark-mode .feature-card p {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .faq-item p {
+  color: #e0e0e0 !important;
+}
+
+/* Dark mode toggle button visibility */
+body.dark-mode .toggle-btn {
+  border: 1px solid #ff6b35 !important;
 }
 </style>
 

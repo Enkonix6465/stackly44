@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -59,40 +62,1654 @@
     #logoutBtn:hover {
       background: #a68e4c;
     }
+
+    /* Header styles */
+    .header .container {
+      max-width: 1400px !important;
+      padding-left: 25px !important;
+      padding-right: 25px !important;
+    }
+
+    .header {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .header .nav-wrapper {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .header .logo {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .header .avatar-wrapper {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background: #181a20 !important;
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .header,
+    body.dark-mode .nav-menu,
+    body.dark-mode .dropdown-menu,
+    body.dark-mode .navigation {
+      background: #23272f !important;
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .logo h2,
+    body.dark-mode .nav-link,
+    body.dark-mode .nav-item a {
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .dashboard-container {
+      background: #23272f !important;
+      color: #e0e0e0 !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+    }
+
+    body.dark-mode h1 {
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode table {
+      background: #1a1d23 !important;
+    }
+
+    body.dark-mode th {
+      background: #2d3748 !important;
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode td {
+      color: #e0e0e0 !important;
+      border-color: #4a5568 !important;
+    }
+
+    body.dark-mode tr:nth-child(even) {
+      background: #2d3748 !important;
+    }
+
+    body.dark-mode #logoutBtn {
+      background: #2d3748 !important;
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode #logoutBtn:hover {
+      background: #4a5568 !important;
+    }
+
+    body.dark-mode .hamburger span {
+      background: #e0e0e0 !important;
+    }
+
+    body.dark-mode .hamburger-menu {
+      background: #23272f !important;
+    }
+
+    body.dark-mode .hamburger-menu a {
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .avatar-circle {
+      background: #4a5568 !important;
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .avatar-dropdown {
+      background: #23272f !important;
+      border: 1px solid #4a5568 !important;
+    }
+
+    body.dark-mode .avatar-dropdown a {
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .avatar-dropdown a:hover {
+      background: #4a5568 !important;
+    }
+
+    body.dark-mode .toggle-btn {
+      background: #4a5568 !important;
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .toggle-btn:hover {
+      background: #2d3748 !important;
+    }
+
+    body.dark-mode .lang-switcher select {
+      background: #4a5568 !important;
+      color: #e0e0e0 !important;
+      border: 1px solid #6b7280 !important;
+    }
+
+    body.dark-mode #userStats {
+      background: #2d3748 !important;
+      border-left-color: #4a5568 !important;
+    }
+
+    body.dark-mode #userStats h3 {
+      color: #e0e0e0 !important;
+    }
+
+    body.dark-mode #userStats p {
+      color: #b0b0b0 !important;
+    }
+
+    /* Avatar dropdown styling */
+    .avatar-wrapper {
+      position: relative;
+    }
+
+    .avatar-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #a68e4c;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .avatar-circle:hover {
+      background: #8a7440;
+      transform: scale(1.05);
+    }
+
+    .avatar-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      min-width: 150px;
+      z-index: 1000;
+      display: none;
+      margin-top: 5px;
+    }
+
+    .avatar-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .avatar-dropdown li {
+      margin: 0;
+    }
+
+    .avatar-dropdown a {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .avatar-dropdown a:hover {
+      background: #f5f5f5;
+    }
+
+    /* Theme toggle button styling */
+    .toggle-btn {
+      background: #a68e4c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-left: 10px;
+    }
+
+    .toggle-btn:hover {
+      background: #8a7440;
+      transform: scale(1.05);
+    }
+
+    /* Dashboard Layout */
+    .dashboard-layout {
+      min-height: 100vh;
+      background: #f8fafc;
+    }
+
+    /* Admin Dashboard Heading */
+    .admin-dashboard-heading {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 20px 30px;
+    }
+
+    .admin-dashboard-heading h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e293b;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Dark mode for admin dashboard heading */
+    body.dark-mode .admin-dashboard-heading {
+      background: #1e293b;
+      border-bottom-color: #334155;
+    }
+
+    body.dark-mode .admin-dashboard-heading h1 {
+      color: #e2e8f0;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Main Content */
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* Dashboard Content */
+    .dashboard-content {
+      padding: 30px;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .stat-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .stat-icon.properties {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    }
+
+    .stat-icon.agents {
+      background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+    }
+
+    .stat-icon.leads {
+      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    }
+
+    .stat-icon.revenue {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    .stat-content {
+      flex: 1;
+    }
+
+    .stat-number {
+      margin: 0 0 5px 0;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .stat-label {
+      margin: 0 0 8px 0;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .stat-trend {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .stat-trend.positive {
+      color: #059669;
+    }
+
+    /* Dashboard Sections */
+    .dashboard-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .dashboard-card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 1px solid #e2e8f0;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+
+    .card-header h3 {
+      margin: 0;
+      color: #1e293b;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Tools Grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .tool-item {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+    }
+
+    .tool-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .tool-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .tool-info h4 {
+      margin: 0 0 8px 0;
+      color: #1e293b;
+      font-size: 1.1rem;
+    }
+
+    .tool-info p {
+      margin: 0 0 15px 0;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .tool-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .usage {
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+
+    .status {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .status.active {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    /* Agents Grid */
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .agent-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .agent-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-color);
+    }
+
+    .agent-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .agent-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .agent-info {
+      flex: 1;
+    }
+
+    .agent-info h4 {
+      margin: 0 0 5px 0;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+    }
+
+    .agent-info p {
+      margin: 0 0 10px 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .agent-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .sales {
+      color: var(--text-secondary);
+    }
+
+    .agent-stats .status {
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .agent-stats .status.active {
+      background: rgba(34, 197, 94, 0.1);
+      color: #22c55e;
+    }
+
+    /* Search Box */
+    .search-box {
+      position: relative;
+    }
+
+    .search-box input {
+      padding: 10px 40px 10px 15px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      width: 250px;
+      font-size: 0.9rem;
+    }
+
+    .search-box i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+    }
+
+    /* Modern Table */
+    .modern-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .modern-table th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 600;
+      padding: 15px 12px;
+      text-align: left;
+      border-bottom: 2px solid #e2e8f0;
+      font-size: 0.9rem;
+    }
+
+    .modern-table td {
+      padding: 15px 12px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #334155;
+    }
+
+    .modern-table tr:hover {
+      background: #f8fafc;
+    }
+
+    /* Activity List */
+    .activity-list {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .activity-item:last-child {
+      border-bottom: none;
+    }
+
+    .activity-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .activity-icon.success {
+      background: #10b981;
+    }
+
+    .activity-icon.info {
+      background: #3b82f6;
+    }
+
+    .activity-icon.warning {
+      background: #f59e0b;
+    }
+
+    .activity-content p {
+      margin: 0 0 5px 0;
+      color: #334155;
+    }
+
+    .activity-time {
+      color: #94a3b8;
+      font-size: 0.8rem;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode .dashboard-layout {
+      background: #0f172a;
+    }
+
+    body.dark-mode .dashboard-header {
+      background: #1e293b;
+      border-bottom-color: #334155;
+    }
+
+    body.dark-mode .logo-text h1 {
+      color: #e2e8f0;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    body.dark-mode .logo-text p {
+      color: #94a3b8;
+    }
+
+    body.dark-mode .top-nav .nav-link {
+      color: #94a3b8;
+    }
+
+    body.dark-mode .top-nav .nav-link:hover {
+      background: #334155;
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .top-nav .nav-link.active {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      color: #1e293b;
+    }
+
+    body.dark-mode .mobile-menu-toggle {
+      background: #334155;
+      border-color: #475569;
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .mobile-menu-toggle:hover {
+      background: #475569;
+    }
+
+    body.dark-mode .mobile-nav {
+      background: #1e293b;
+      border-top-color: #334155;
+    }
+
+    body.dark-mode .mobile-nav .nav-link {
+      color: #94a3b8;
+      border-bottom-color: #334155;
+    }
+
+    body.dark-mode .mobile-nav .nav-link:hover,
+    body.dark-mode .mobile-nav .nav-link.active {
+      background: #334155;
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .stat-card {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    body.dark-mode .stat-number {
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .stat-label {
+      color: #94a3b8;
+    }
+
+    body.dark-mode .dashboard-card {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    body.dark-mode .card-header h3 {
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .tool-item {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      border-color: #475569;
+    }
+
+    body.dark-mode .tool-info h4 {
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .tool-info p {
+      color: #94a3b8;
+    }
+
+    body.dark-mode .modern-table th {
+      background: #334155;
+      color: #cbd5e1;
+      border-bottom-color: #475569;
+    }
+
+    body.dark-mode .modern-table td {
+      color: #e2e8f0;
+      border-bottom-color: #334155;
+    }
+
+    body.dark-mode .modern-table tr:hover {
+      background: #334155;
+    }
+
+    body.dark-mode .user-table-container {
+      background: #1e293b;
+      border-radius: 12px;
+    }
+
+    /* Status Badge */
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .status-badge.active {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    /* View Button */
+    .view-button {
+      padding: 6px 12px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .view-button:hover {
+      background: #e2e8f0;
+    }
+
+    /* Dark mode for status badge and view button */
+    body.dark-mode .status-badge.active {
+      background: #166534;
+      color: #dcfce7;
+    }
+
+    body.dark-mode .view-button {
+      background: #334155;
+      border-color: #475569;
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .view-button:hover {
+      background: #475569;
+    }
+
+    /* User Info Styling */
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .user-avatar.admin {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .user-avatar.regular {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    .user-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-name {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .user-role {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    /* Dark mode for user info */
+    body.dark-mode .user-name {
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .user-role {
+      color: #94a3b8;
+    }
+
+    body.dark-mode .search-box input {
+      background: #334155;
+      border-color: #475569;
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .activity-content p {
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .activity-time {
+      color: #94a3b8;
+    }
+
+    /* Mobile Responsive Design */
+    @media (max-width: 768px) {
+      .admin-dashboard-heading {
+        padding: 15px 20px;
+      }
+
+      .admin-dashboard-heading h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .admin-dashboard-heading {
+        padding: 12px 15px;
+      }
+
+      .admin-dashboard-heading h1 {
+        font-size: 1.3rem;
+      }
+    }
+
+      .logo-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+      }
+
+      .logo-text h1 {
+        font-size: 1.4rem;
+        margin-bottom: 4px;
+      }
+
+      .logo-text p {
+        font-size: 0.8rem;
+      }
+
+      .top-nav {
+        display: none; /* Hide navigation on mobile */
+      }
+
+      /* Main Content Mobile */
+      .main-content {
+        padding: 0 15px;
+      }
+
+      .dashboard-content {
+        padding: 20px 0;
+      }
+
+      /* Stats Grid Mobile */
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .stat-card {
+        padding: 20px 15px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+
+      .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+
+      .stat-number {
+        font-size: 1.5rem;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+      }
+
+      .stat-trend {
+        font-size: 0.7rem;
+      }
+
+      /* Dashboard Sections Mobile */
+      .dashboard-sections {
+        gap: 20px;
+      }
+
+      .dashboard-card {
+        padding: 20px 15px;
+        border-radius: 12px;
+      }
+
+      .card-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+      }
+
+      .card-header h3 {
+        font-size: 1.1rem;
+      }
+
+      /* Tools Grid Mobile */
+      .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .tool-item {
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .tool-icon {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .tool-info h4 {
+        font-size: 1rem;
+      }
+
+      .tool-info p {
+        font-size: 0.8rem;
+      }
+
+      .tool-stats {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+      }
+
+      /* User Table Mobile */
+      .user-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .modern-table {
+        min-width: 600px;
+      }
+
+      .modern-table th,
+      .modern-table td {
+        padding: 12px 8px;
+        font-size: 0.8rem;
+      }
+
+      .search-box input {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      /* Activity List Mobile */
+      .activity-list {
+        max-height: 250px;
+      }
+
+      .activity-item {
+        padding: 12px 0;
+        gap: 12px;
+      }
+
+      .activity-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+      }
+
+      .activity-content p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+
+      .activity-time {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Extra Small Mobile */
+      .header-content {
+        padding: 10px 15px;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.8rem;
+      }
+
+      .logo-text h1 {
+        font-size: 1.2rem;
+      }
+
+      .logo-text p {
+        font-size: 0.75rem;
+      }
+
+      .main-content {
+        padding: 0 10px;
+      }
+
+      .dashboard-content {
+        padding: 15px 0;
+      }
+
+      /* Stats Grid Extra Small */
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .stat-card {
+        padding: 15px 12px;
+        gap: 12px;
+      }
+
+      .stat-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+
+      .stat-number {
+        font-size: 1.3rem;
+      }
+
+      .stat-label {
+        font-size: 0.75rem;
+      }
+
+      /* Dashboard Cards Extra Small */
+      .dashboard-card {
+        padding: 15px 12px;
+        border-radius: 10px;
+      }
+
+      .card-header {
+        gap: 12px;
+      }
+
+      .card-header h3 {
+        font-size: 1rem;
+      }
+
+      /* Tools Extra Small */
+      .tool-item {
+        padding: 12px;
+        border-radius: 8px;
+      }
+
+      .tool-icon {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+      }
+
+      .tool-info h4 {
+        font-size: 0.9rem;
+      }
+
+      .tool-info p {
+        font-size: 0.75rem;
+      }
+
+      /* Table Extra Small */
+      .modern-table th,
+      .modern-table td {
+        padding: 10px 6px;
+        font-size: 0.75rem;
+      }
+
+      /* Activity Extra Small */
+      .activity-item {
+        padding: 10px 0;
+        gap: 10px;
+      }
+
+      .activity-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 0.6rem;
+      }
+
+      .activity-content p {
+        font-size: 0.8rem;
+      }
+
+      .activity-time {
+        font-size: 0.65rem;
+      }
+    }
+
+    /* Mobile Menu Toggle */
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: block;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-menu-toggle:hover {
+        background: #e2e8f0;
+      }
+
+      .mobile-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid #e2e8f0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        z-index: 1000;
+      }
+
+      .mobile-nav.active {
+        display: block;
+      }
+
+      .mobile-nav .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px 20px;
+        color: #64748b;
+        text-decoration: none;
+        border-bottom: 1px solid #f1f5f9;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-nav .nav-link:hover,
+      .mobile-nav .nav-link.active {
+        background: #f8fafc;
+        color: #1e293b;
+      }
+
+      .mobile-nav .nav-link i {
+        width: 20px;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="dashboard-container">
-    <h1>Admin Dashboard</h1>
-    <table id="usersTable">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- User rows will be injected here -->
-      </tbody>
-    </table>
-    <button id="logoutBtn">Logout</button>
+  
+<!-- Sticky Header -->
+<header class="header">
+  <div class="container">
+    <div class="nav-wrapper">
+      <div class="logo">
+        <img src="assets/images/stackly_logo_transparent.png" alt="logo" style="height: 40px; width: 80px;">
+      </div>
+
+      <nav class="navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link"><span data-i18n="home">Home</span> <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="index.html"><span data-i18n="home1">Home 1</span></a></li>
+              <li><a href="home2.html"><span data-i18n="home2">Home 2</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link"><span data-i18n="about">About</span></a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link"><span data-i18n="services">Services</span> <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html"><span data-i18n="allServices">All Services</span></a></li>
+              <li><a href="service1.html"><span data-i18n="service_1">Service_1</span></a></li>
+              <li><a href="service2.html"><span data-i18n="service_2">Service_2</span></a></li>
+              <li><a href="service3.html"><span data-i18n="service_3">Service_3</span></a></li>
+              <li><a href="service4.html"><span data-i18n="service_4">Service_4</span></a></li>
+              <li><a href="service5.html"><span data-i18n="service_5">Service_5</span></a></li>
+              <li><a href="service6.html"><span data-i18n="service_6">Service_6</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link"><span data-i18n="blog">Blog</span> <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="blog.html"><span data-i18n="allPosts">All Posts</span></a></li>
+              <li><a href="blog1.html"><span data-i18n="blog_1">blog_1</span></a></li>
+              <li><a href="blog2.html"><span data-i18n="blog_2">blog_2</span></a></li>
+              <li><a href="blog3.html"><span data-i18n="blog_3">blog_3</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="contact.html" class="nav-link"><span data-i18n="contact">Contact</span></a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" aria-label="Open menu" tabindex="0">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+
+      <div class="lang-switcher">
+        <label for="langSelect"></label>
+        <select id="langSelect" onchange="changeLanguage(this.value)">
+          <option value="en">English</option>
+          <option value="ar">Arabic</option>
+          <option value="he">Hebrew</option>
+        </select>
+  </div>
+
+      <div class="mobile-menu-wrapper">
+        <ul class="hamburger-menu" id="hamburgerMenu">
+          <li class="mobile-dropdown-parent">
+            <span><span data-i18n="home">Home</span> <i class="fas fa-chevron-down"></i></span>
+            <ul class="mobile-dropdown">
+              <li><a href="index.html"><span data-i18n="home1">Home 1</span></a></li>
+              <li><a href="home2.html"><span data-i18n="home2">Home 2</span></a></li>
+            </ul>
+          </li>
+          <li><a href="about.html"><span data-i18n="about">About</span></a></li>
+          <li class="mobile-dropdown-parent">
+            <span><span data-i18n="services">Services</span> <i class="fas fa-chevron-down"></i></span>
+            <ul class="mobile-dropdown">
+              <li><a href="services.html"><span data-i18n="allServices">All Services</span></a></li>
+              <li><a href="service1.html"><span data-i18n="service_1">Service_1</span></a></li>
+              <li><a href="service2.html"><span data-i18n="service_2">Service_2</span></a></li>
+              <li><a href="service3.html"><span data-i18n="service_3">Service_3</span></a></li>
+              <li><a href="service4.html"><span data-i18n="service_4">Service_4</span></a></li>
+              <li><a href="service5.html"><span data-i18n="service_5">Service_5</span></a></li>
+              <li><a href="service6.html"><span data-i18n="service_6">Service_6</span></a></li>
+            </ul>
+          </li>
+          <li class="mobile-dropdown-parent">
+            <span><span data-i18n="blog">Blog</span> <i class="fas fa-chevron-down"></i></span>
+            <ul class="mobile-dropdown">
+              <li><a href="blog.html"><span data-i18n="allPosts">All Posts</span></a></li>
+              <li><a href="blog1.html"><span data-i18n="blog_1">blog_1</span></a></li>
+              <li><a href="blog2.html"><span data-i18n="blog_2">blog_2</span></a></li>
+              <li><a href="blog3.html"><span data-i18n="blog_3">blog_3</span></a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html"><span data-i18n="contact">Contact</span></a></li>
+        </ul>
+      </div>
+
+      <button id="toggleBtn" class="toggle-btn" title="Toggle Theme">
+        <i class="fas fa-moon"></i>
+      </button>
+
+      <div class="avatar-wrapper">
+        <div class="avatar-circle" title="Profile" id="avatarCircle">
+          <span id="avatarInitials">AD</span>
+        </div>
+        <div class="avatar-dropdown" id="avatarDropdown">
+          <ul>
+            <li>
+              <a href="index.html" id="headerLogoutBtn">
+                <span data-i18n="logout">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- Main Dashboard Layout -->
+  <div class="dashboard-layout">
+    <!-- Admin Dashboard Heading -->
+    <div class="admin-dashboard-heading">
+      <h1 data-i18n="admin_dashboard">Admin Dashboard</h1>
+    </div>
+
+    <!-- Main Content -->
+  <div class="main-content">
+
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon properties">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number">247</h3>
+              <p class="stat-label" data-i18n="total_volunteers">Active Volunteers</p>
+              <span class="stat-trend positive" data-i18n="trend_up">+8% this month</span>
+            </div>
+    </div>
+
+          <div class="stat-card">
+            <div class="stat-icon agents">
+              <i class="fas fa-user-friends"></i>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number">24</h3>
+              <p class="stat-label" data-i18n="active_campaigns">Active Campaigns</p>
+              <span class="stat-trend positive" data-i18n="trend_up">+3 this month</span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon leads">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number">1,847</h3>
+              <p class="stat-label" data-i18n="total_donors">Total Donors</p>
+              <span class="stat-trend positive" data-i18n="trend_up">+25% this month</span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon revenue">
+              <i class="fas fa-donate"></i>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number">$4.2M</h3>
+              <p class="stat-label" data-i18n="monthly_donations">Monthly Donations</p>
+              <span class="stat-trend positive" data-i18n="trend_up">+18% this month</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Width Dashboard Sections -->
+        <div class="dashboard-sections">
+          <!-- User Management - Full Width -->
+          <div class="dashboard-card users-card full-width">
+            <div class="card-header">
+              <h3 data-i18n="user_management">User Management</h3>
+              <div class="search-box">
+                <input type="text" id="userSearch" placeholder="Search users..." data-i18n-placeholder="search_users">
+                <i class="fas fa-search"></i>
+              </div>
+            </div>
+            <div class="user-table-container">
+              <table id="usersTable" class="modern-table">
+        <thead>
+          <tr>
+                    <th data-i18n="user">User</th>
+                    <th data-i18n="email">Email</th>
+                    <th data-i18n="last_active">Last Active</th>
+                    <th data-i18n="volunteer_type">Volunteer Type</th>
+                    <th data-i18n="status">Status</th>
+                    <th data-i18n="actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- User rows will be injected here -->
+        </tbody>
+      </table>
+            </div>
+    </div>
+
+
+          <!-- Campaign Management - Full Width -->
+          <div class="dashboard-card agents-card full-width">
+            <div class="card-header">
+              <h3 data-i18n="agent_management">Campaign Management</h3>
+              <button class="btn-primary" data-i18n="add_agent">Add Campaign</button>
+            </div>
+            <div class="agents-grid">
+              <div class="agent-item">
+                <div class="agent-avatar">
+                  <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=100&h=100&fit=crop&crop=center" alt="Emergency Relief">
+                </div>
+                <div class="agent-info">
+                  <h4>Emergency Relief Fund</h4>
+                  <p data-i18n="senior_agent">Disaster Response & Emergency Aid</p>
+                  <div class="agent-stats">
+                    <span class="sales">$125K raised this month</span>
+                    <span class="status active" data-i18n="active">Active</span>
+                  </div>
+                </div>
+              </div>
+              <div class="agent-item">
+                <div class="agent-avatar">
+                  <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=100&h=100&fit=crop&crop=center" alt="Education Campaign">
+                </div>
+                <div class="agent-info">
+                  <h4>Education for All</h4>
+                  <p data-i18n="luxury_specialist">School Supplies & Learning Resources</p>
+                  <div class="agent-stats">
+                    <span class="sales">$89K raised this month</span>
+                    <span class="status active" data-i18n="active">Active</span>
+                  </div>
+                </div>
+              </div>
+              <div class="agent-item">
+                <div class="agent-avatar">
+                  <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=100&h=100&fit=crop&crop=center" alt="Healthcare Campaign">
+                </div>
+                <div class="agent-info">
+                  <h4>Community Health</h4>
+                  <p data-i18n="commercial_agent">Medical Supplies & Health Services</p>
+                  <div class="agent-stats">
+                    <span class="sales">$67K raised this month</span>
+                    <span class="status active" data-i18n="active">Active</span>
+                  </div>
+                </div>
+              </div>
+              <div class="agent-item">
+                <div class="agent-avatar">
+                  <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=100&h=100&fit=crop&crop=center" alt="Environmental Campaign">
+                </div>
+                <div class="agent-info">
+                  <h4>Environmental Protection</h4>
+                  <p data-i18n="residential_agent">Tree Planting & Conservation</p>
+                  <div class="agent-stats">
+                    <span class="sales">$156K raised this month</span>
+                    <span class="status active" data-i18n="active">Active</span>
+                  </div>
+                </div>
+              </div>
+    </div>
+  </div>
+
+          <!-- Recent Activity - Full Width -->
+          <div class="dashboard-card activity-card full-width">
+            <div class="card-header">
+              <h3 data-i18n="recent_activity">Recent Activity</h3>
+            </div>
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-icon success">
+                  <i class="fas fa-donate"></i>
+                </div>
+                <div class="activity-content">
+                  <p><strong data-i18n="property_sold">Major Donation Received</strong></p>
+                  <p data-i18n="luxury_penthouse_sold">Corporate Sponsorship - Education Fund - $25K</p>
+                  <span class="activity-time" data-i18n="time_ago">2 hours ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon info">
+                  <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="activity-content">
+                  <p><strong data-i18n="new_lead">New Volunteer Registered</strong></p>
+                  <p data-i18n="interested_buyer">Sarah Wilson - Interested in community outreach</p>
+                  <span class="activity-time" data-i18n="time_ago">4 hours ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon warning">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="activity-content">
+                  <p><strong data-i18n="property_expired">Campaign Funding Low</strong></p>
+                  <p data-i18n="commercial_office_space">Emergency Relief Fund - 15% of goal remaining</p>
+                  <span class="activity-time" data-i18n="time_ago">6 hours ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon success">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="activity-content">
+                  <p><strong data-i18n="sales_milestone">Fundraising Milestone</strong></p>
+                  <p data-i18n="monthly_target_achieved">Monthly donation target achieved - $420K</p>
+                  <span class="activity-time" data-i18n="time_ago">1 day ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script>
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("DOM loaded, starting admin dashboard initialization...");
+      
+      // Admin authentication check
+      const currentUser = localStorage.getItem("currentUser");
+      const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+      
+      // Check if user is admin
+      const isAdmin = currentUser === "admin@enkonix.in";
+      
+      if (!isLoggedIn || !isAdmin) {
+        // Redirect non-admin users or non-logged-in users
+        alert("❌ Access denied. Admin privileges required.");
+        window.location.href = "index.html";
+        return;
+      }
+
+    // Function to get random volunteer type
+    function getRandomVolunteerType() {
+      const volunteerTypes = [
+        'Event Volunteer',
+        'Food Distribution',
+        'Fundraising',
+        'Community Outreach',
+        'Administrative Support',
+        'Emergency Response',
+        'Education Programs',
+        'Environmental Projects',
+        'Healthcare Support',
+        'Social Media'
+      ];
+      return volunteerTypes[Math.floor(Math.random() * volunteerTypes.length)];
+    }
+
     // Fetch all users from localStorage
     const users = JSON.parse(localStorage.getItem("users")) || {};
-    const tbody = document.querySelector("#usersTable tbody");
-    tbody.innerHTML = "";
+    const userTbody = document.querySelector("#usersTable tbody");
+    userTbody.innerHTML = "";
 
+    // Add admin user to the table
+    const adminRow = document.createElement("tr");
+    adminRow.innerHTML = `
+      <td>
+        <div class="user-info">
+          <div class="user-avatar admin">AD</div>
+          <div class="user-details">
+            <div class="user-name">Admin User</div>
+            <div class="user-role">Administrator</div>
+          </div>
+        </div>
+      </td>
+      <td>admin@enkonix.in</td>
+      <td>Now</td>
+      <td>Administrator</td>
+      <td><span class="status-badge active">Active</span></td>
+      <td>
+        <button class="view-button">View</button>
+      </td>
+    `;
+    // Remove special admin row background - make it same as other rows
+    // adminRow.style.backgroundColor = isDarkMode ? "#334155" : "#f8fafc";
+    userTbody.appendChild(adminRow);
+
+    // Add all regular users
     Object.entries(users).forEach(([email, user]) => {
       const row = document.createElement("tr");
+      const initials = ((user.firstName || "")[0] || "").toUpperCase() + ((user.lastName || "")[0] || "").toUpperCase();
+      const fullName = `${user.firstName || ""} ${user.lastName || ""}`.trim() || "User";
+      
       row.innerHTML = `
-        <td>${user.firstName || ""}</td>
-        <td>${user.lastName || ""}</td>
+        <td>
+          <div class="user-info">
+            <div class="user-avatar regular">${initials || "U"}</div>
+            <div class="user-details">
+              <div class="user-name">${fullName}</div>
+              <div class="user-role">Regular User</div>
+            </div>
+          </div>
+        </td>
         <td>${email}</td>
+        <td>2 hours ago</td>
+        <td>${getRandomVolunteerType()}</td>
+        <td><span class="status-badge active">Active</span></td>
+        <td>
+          <button class="view-button">View</button>
+        </td>
       `;
-      tbody.appendChild(row);
+      userTbody.appendChild(row);
     });
+
+    // Update user statistics
+    const totalUsers = Object.keys(users).length + 1; // +1 for admin
+    const regularUsers = Object.keys(users).length;
+    const adminUsers = 1; // admin@enkonix.in
+
+    document.getElementById('totalUsers').textContent = totalUsers;
+    document.getElementById('adminUsers').textContent = adminUsers;
+    document.getElementById('regularUsers').textContent = regularUsers;
+
+
+    // Update avatar initials for admin
+    const avatarInitials = document.getElementById('avatarInitials');
+    if (avatarInitials && isAdmin) {
+      avatarInitials.textContent = "AD"; // Admin Dashboard
+    }
 
     // Logout logic
     document.getElementById("logoutBtn").onclick = function() {
@@ -100,6 +1717,509 @@
       localStorage.removeItem("currentUser");
       window.location.href = "index.html";
     };
+
+      // Header logout logic
+      document.getElementById("headerLogoutBtn").onclick = function() {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("currentUser");
+        window.location.href = "index.html";
+      };
+    }); // End of DOMContentLoaded
+  </script>
+
+  <script>
+    // Translation dictionary
+    const translations = {
+      en: {
+        "admin_dashboard": "Admin Dashboard",
+        "home": "Home",
+        "home1": "Home 1",
+        "home2": "Home 2",
+        "about": "About",
+        "services": "Services",
+        "allServices": "All Services",
+        "service_1": "Service_1",
+        "service_2": "Service_2",
+        "service_3": "Service_3",
+        "service_4": "Service_4",
+        "service_5": "Service_5",
+        "service_6": "Service_6",
+        "blog": "Blog",
+        "allPosts": "All Posts",
+        "blog_1": "Blog_1",
+        "blog_2": "Blog_2",
+        "blog_3": "Blog_3",
+        "contact": "Contact",
+        "logout": "Logout",
+        "admin_dashboard": "Admin Dashboard",
+        "stackly_admin": "Stackly Charity",
+        "ai_tools_management": "Charity Management",
+        "dashboard": "Dashboard",
+        "properties": "Volunteers",
+        "agents": "Campaigns",
+        "leads": "Donors",
+        "analytics": "Analytics",
+        "transactions": "Transactions",
+        "reports": "Reports",
+        "settings": "Settings",
+        "welcome_message": "Welcome to your charity management dashboard",
+        "total_volunteers": "Active Volunteers",
+        "active_campaigns": "Active Campaigns",
+        "total_donors": "Total Donors",
+        "monthly_donations": "Monthly Donations",
+        "trend_up": "+12% this month",
+        "property_management": "Volunteer Management",
+        "agent_management": "Campaign Management",
+        "add_agent": "Add Campaign",
+        "senior_agent": "Disaster Response & Emergency Aid",
+        "luxury_specialist": "School Supplies & Learning Resources",
+        "commercial_agent": "Medical Supplies & Health Services",
+        "residential_agent": "Tree Planting & Conservation",
+        "active": "Active",
+        "user_management": "User Management",
+        "search_users": "Search users...",
+        "user": "User",
+        "email": "Email",
+        "last_active": "Last Active",
+        "volunteer_type": "Volunteer Type",
+        "search_properties": "Search properties...",
+        "property": "Property",
+        "type": "Type",
+        "price": "Price",
+        "location": "Location",
+        "bedrooms": "Bedrooms",
+        "bathrooms": "Bathrooms",
+        "area": "Area (sq ft)",
+        "agent": "Agent",
+        "listed_date": "Listed Date",
+        "status": "Status",
+        "actions": "Actions",
+        "recent_activity": "Recent Activity",
+        "property_sold": "Major Donation Received",
+        "luxury_penthouse_sold": "Corporate Sponsorship - Education Fund - $25K",
+        "time_ago": "2 hours ago",
+        "new_lead": "New Volunteer Registered",
+        "interested_buyer": "Sarah Wilson - Interested in community outreach",
+        "property_expired": "Campaign Funding Low",
+        "commercial_office_space": "Emergency Relief Fund - 15% of goal remaining",
+        "sales_milestone": "Fundraising Milestone",
+        "monthly_target_achieved": "Monthly donation target achieved - $420K"
+      },
+      ar: {
+        "admin_dashboard": "لوحة تحكم الإدارة",
+        "home": "الرئيسية",
+        "home1": "الصفحة 1",
+        "home2": "الصفحة 2",
+        "about": "معلومات عنا",
+        "services": "الخدمات",
+        "allServices": "جميع الخدمات",
+        "service_1": "الخدمة_1",
+        "service_2": "الخدمة_2",
+        "service_3": "الخدمة_3",
+        "service_4": "الخدمة_4",
+        "service_5": "الخدمة_5",
+        "service_6": "الخدمة_6",
+        "blog": "المدونة",
+        "allPosts": "جميع المقالات",
+        "blog_1": "مدونة_1",
+        "blog_2": "مدونة_2",
+        "blog_3": "مدونة_3",
+        "contact": "اتصل بنا",
+        "logout": "تسجيل الخروج",
+        "admin_dashboard": "لوحة تحكم الإدارة",
+        "stackly_admin": "ستاكلي الخيرية",
+        "ai_tools_management": "إدارة الأعمال الخيرية",
+        "dashboard": "لوحة التحكم",
+        "properties": "المتطوعون",
+        "agents": "الحملات",
+        "leads": "المتبرعون",
+        "analytics": "التحليلات",
+        "transactions": "المعاملات",
+        "reports": "التقارير",
+        "settings": "الإعدادات",
+        "welcome_message": "مرحباً بك في لوحة تحكم إدارة الأعمال الخيرية",
+        "total_volunteers": "المتطوعون النشطون",
+        "active_campaigns": "الحملات النشطة",
+        "total_donors": "إجمالي المتبرعين",
+        "monthly_donations": "التبرعات الشهرية",
+        "trend_up": "+12% هذا الشهر",
+        "property_management": "إدارة المتطوعين",
+        "agent_management": "إدارة الحملات",
+        "add_agent": "إضافة حملة",
+        "senior_agent": "الإغاثة في حالات الكوارث والمساعدة الطارئة",
+        "luxury_specialist": "المواد المدرسية وموارد التعلم",
+        "commercial_agent": "المستلزمات الطبية والخدمات الصحية",
+        "residential_agent": "زراعة الأشجار والحفظ",
+        "active": "نشط",
+        "user_management": "إدارة المستخدمين",
+        "search_users": "البحث عن المستخدمين...",
+        "user": "المستخدم",
+        "email": "البريد الإلكتروني",
+        "last_active": "آخر نشاط",
+        "volunteer_type": "نوع المتطوع",
+        "search_properties": "البحث عن العقارات...",
+        "property": "العقار",
+        "type": "النوع",
+        "price": "السعر",
+        "location": "الموقع",
+        "bedrooms": "غرف النوم",
+        "bathrooms": "الحمامات",
+        "area": "المساحة (قدم مربع)",
+        "agent": "الوكيل",
+        "listed_date": "تاريخ الإدراج",
+        "status": "الحالة",
+        "actions": "الإجراءات",
+        "recent_activity": "النشاط الأخير",
+        "property_sold": "تم بيع العقار",
+        "luxury_penthouse_sold": "بنتهاوس فاخر - وسط المدينة - 2.5 مليون دولار",
+        "time_ago": "منذ ساعتين",
+        "new_lead": "عميل محتمل جديد",
+        "interested_buyer": "مشتري مهتم بشقة 3 غرف نوم",
+        "property_expired": "انتهت صلاحية إعلان العقار",
+        "commercial_office_space": "مساحة مكتبية تجارية - 90 يوم",
+        "sales_milestone": "معلم المبيعات",
+        "monthly_target_achieved": "تم تحقيق الهدف الشهري - 4.2 مليون دولار"
+      },
+      he: {
+        "admin_dashboard": "לוח בקרה של המנהל",
+        "home": "בית",
+        "home1": "בית 1",
+        "home2": "בית 2",
+        "about": "אודותינו",
+        "services": "שירותים",
+        "allServices": "כל השירותים",
+        "service_1": "שירות_1",
+        "service_2": "שירות_2",
+        "service_3": "שירות_3",
+        "service_4": "שירות_4",
+        "service_5": "שירות_5",
+        "service_6": "שירות_6",
+        "blog": "בלוג",
+        "allPosts": "כל הפוסטים",
+        "blog_1": "בלוג_1",
+        "blog_2": "בלוג_2",
+        "blog_3": "בלוג_3",
+        "contact": "צור קשר",
+        "logout": "התנתק",
+        "admin_dashboard": "לוח בקרה של מנהל",
+        "stackly_admin": "סטקלי צדקה",
+        "ai_tools_management": "ניהול צדקה",
+        "dashboard": "לוח בקרה",
+        "properties": "מתנדבים",
+        "agents": "קמפיינים",
+        "leads": "תורמים",
+        "analytics": "אנליטיקה",
+        "transactions": "עסקאות",
+        "reports": "דוחות",
+        "settings": "הגדרות",
+        "welcome_message": "ברוכים הבאים ללוח הבקרה של ניהול צדקה",
+        "total_volunteers": "מתנדבים פעילים",
+        "active_campaigns": "קמפיינים פעילים",
+        "total_donors": "סה\"כ תורמים",
+        "monthly_donations": "תרומות חודשיות",
+        "trend_up": "+12% החודש",
+        "property_management": "ניהול מתנדבים",
+        "agent_management": "ניהול קמפיינים",
+        "add_agent": "הוסף קמפיין",
+        "senior_agent": "סיוע באסונות ועזרה דחופה",
+        "luxury_specialist": "ציוד לימודים ומשאבי למידה",
+        "commercial_agent": "אספקה רפואית ושירותי בריאות",
+        "residential_agent": "נטיעת עצים ושימור",
+        "active": "פעיל",
+        "user_management": "ניהול משתמשים",
+        "search_users": "חיפוש משתמשים...",
+        "user": "משתמש",
+        "email": "אימייל",
+        "last_active": "פעילות אחרונה",
+        "volunteer_type": "סוג מתנדב",
+        "search_properties": "חיפוש נכסים...",
+        "property": "נכס",
+        "type": "סוג",
+        "price": "מחיר",
+        "location": "מיקום",
+        "bedrooms": "חדרי שינה",
+        "bathrooms": "חדרי רחצה",
+        "area": "שטח (רגל מרובע)",
+        "agent": "סוכן",
+        "listed_date": "תאריך רישום",
+        "status": "סטטוס",
+        "actions": "פעולות",
+        "recent_activity": "פעילות אחרונה",
+        "property_sold": "נכס נמכר",
+        "luxury_penthouse_sold": "נטהאוז יוקרה - מרכז העיר - 2.5 מיליון דולר",
+        "time_ago": "לפני שעתיים",
+        "new_lead": "ליד חדש",
+        "interested_buyer": "קונה מעוניין בדירת 3 חדרים",
+        "property_expired": "פג תוקף פרסום הנכס",
+        "commercial_office_space": "מרחב משרדי מסחרי - 90 יום",
+        "sales_milestone": "אבן דרך במכירות",
+        "monthly_target_achieved": "הושג יעד חודשי - 4.2 מיליון דולר"
+      }
+    };
+
+    // Function to change language
+    function changeLanguage(lang) {
+      console.log("Changing language to:", lang);
+      
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        console.log("Processing key:", key);
+        
+        if(translations[lang] && translations[lang][key]) {
+          console.log("Found translation for", key, ":", translations[lang][key]);
+          el.innerText = translations[lang][key];
+        } else {
+          console.log("No translation found for key:", key, "in language:", lang);
+        }
+      });
+
+      // Handle RTL for Arabic & Hebrew - but keep header layout consistent
+      if(lang === "ar" || lang === "he") {
+        document.documentElement.dir = "rtl";
+        // Override RTL for header to maintain consistent layout
+        document.querySelector('.header').style.direction = "ltr";
+        // Force avatar dropdown to stay in same position
+        const avatarDropdown = document.querySelector('.avatar-dropdown');
+        if(avatarDropdown) {
+          avatarDropdown.style.right = "0px";
+          avatarDropdown.style.left = "auto";
+        }
+      } else {
+        document.documentElement.dir = "ltr";
+        // Ensure header direction is LTR
+        document.querySelector('.header').style.direction = "ltr";
+        // Force avatar dropdown to stay in same position
+        const avatarDropdown = document.querySelector('.avatar-dropdown');
+        if(avatarDropdown) {
+          avatarDropdown.style.right = "0px";
+          avatarDropdown.style.left = "auto";
+        }
+      }
+
+      // Save language preference
+      localStorage.setItem('selectedLanguage', lang);
+    }
+
+    // Load saved language preference on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+      document.getElementById('langSelect').value = savedLanguage;
+      changeLanguage(savedLanguage);
+    });
+
+    // Header functionality for admin dashboard
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu setup
+      const hamburger = document.getElementById("hamburger");
+      const hamburgerMenu = document.getElementById("hamburgerMenu");
+
+      if (hamburger && hamburgerMenu) {
+        // Show/hide mobile menu on hamburger click
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          hamburgerMenu.classList.toggle("active");
+        });
+      }
+
+      // Toggle dropdowns for mobile menu
+      document.querySelectorAll('.mobile-dropdown-parent > span').forEach(link => {
+        link.addEventListener('click', function() {
+          const parentLi = this.parentElement;
+          const dropdown = parentLi.querySelector('.mobile-dropdown');
+          dropdown.classList.toggle('active');
+        });
+      });
+
+      // Close mobile menu when switching to desktop view
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          if (hamburger) hamburger.classList.remove('active');
+          if (hamburgerMenu) hamburgerMenu.classList.remove('active');
+        }
+      });
+
+      // Desktop dropdown toggle logic
+      document.querySelectorAll('.nav-item.dropdown > .nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            if (menu !== this.nextElementSibling) {
+              menu.classList.remove('active');
+            }
+          });
+          const dropdownMenu = this.nextElementSibling;
+          if (dropdownMenu) {
+            dropdownMenu.classList.toggle('active');
+          }
+        });
+      });
+
+      // Redirect on desktop dropdown menu item click
+      document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href && href !== "#") {
+            window.location.href = href;
+            document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('active'));
+          }
+        });
+      });
+
+      // Redirect on normal nav link click
+      document.querySelectorAll('.nav-menu > .nav-item:not(.dropdown) .nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href && href !== "#") {
+            window.location.href = href;
+          }
+        });
+      });
+
+      // Theme toggle
+      const toggleBtn = document.getElementById('toggleBtn');
+      if (toggleBtn) {
+        let darkMode = localStorage.getItem('darkMode') === 'true';
+
+        function applyTheme() {
+          if (darkMode) {
+            document.body.classList.add('dark-mode');
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+          } else {
+            document.body.classList.remove('dark-mode');
+            toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+          }
+        }
+
+        toggleBtn.addEventListener('click', () => {
+          darkMode = !darkMode;
+          localStorage.setItem('darkMode', darkMode);
+          applyTheme();
+        });
+        applyTheme();
+      }
+
+      // Avatar functionality
+      const avatarCircle = document.getElementById('avatarCircle');
+      const avatarInitials = document.getElementById('avatarInitials');
+      const avatarDropdown = document.getElementById('avatarDropdown');
+      const headerLogoutBtn = document.getElementById('headerLogoutBtn');
+
+      if (avatarCircle && avatarInitials && avatarDropdown) {
+        // Set avatar initials
+        const currentUserEmail = localStorage.getItem("currentUser");
+        const users = JSON.parse(localStorage.getItem("users")) || {};
+
+        // Check if current user is admin
+        if (currentUserEmail === "admin@enkonix.in") {
+          avatarInitials.textContent = "AD"; // Admin Dashboard
+        } else if (currentUserEmail && users[currentUserEmail]) {
+          const firstName = users[currentUserEmail].firstName || "";
+          const lastName = users[currentUserEmail].lastName || "";
+          const initials = (firstName[0] || "").toUpperCase() + (lastName[0] || "").toUpperCase();
+          avatarInitials.textContent = initials;
+        } else {
+          avatarInitials.textContent = "?"; // Unknown user
+        }
+
+        // Show/hide avatar dropdown on click
+        avatarCircle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          avatarDropdown.style.display = avatarDropdown.style.display === "block" ? "none" : "block";
+        });
+
+        document.addEventListener('click', function(e) {
+          if (!avatarCircle.contains(e.target) && !avatarDropdown.contains(e.target)) {
+            avatarDropdown.style.display = "none";
+          }
+        });
+      }
+
+       // Sticky Header Animation
+       window.addEventListener('scroll', function() {
+         const header = document.querySelector('.header');
+         if (header) {
+           if (window.scrollY > 100) {
+             header.classList.add('sticky-header');
+           } else {
+             header.classList.remove('sticky-header');
+           }
+         }
+       });
+
+       // Top navigation functionality
+       const navLinks = document.querySelectorAll('.top-nav .nav-link');
+       navLinks.forEach(link => {
+         link.addEventListener('click', function(e) {
+           e.preventDefault();
+           
+           // Remove active class from all nav links
+           navLinks.forEach(navLink => {
+             navLink.classList.remove('active');
+           });
+           
+           // Add active class to clicked item
+           this.classList.add('active');
+           
+           // Handle page navigation (placeholder for now)
+           const page = this.getAttribute('data-page');
+           console.log('Navigate to:', page);
+         });
+       });
+
+       // Mobile menu functionality
+       const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+       const mobileNav = document.getElementById('mobileNav');
+       const mobileNavLinks = document.querySelectorAll('.mobile-nav .nav-link');
+       
+       if (mobileMenuToggle && mobileNav) {
+         mobileMenuToggle.addEventListener('click', function() {
+           mobileNav.classList.toggle('active');
+           const icon = this.querySelector('i');
+           if (mobileNav.classList.contains('active')) {
+             icon.className = 'fas fa-times';
+           } else {
+             icon.className = 'fas fa-bars';
+           }
+         });
+       }
+
+       // Mobile navigation links
+       mobileNavLinks.forEach(link => {
+         link.addEventListener('click', function(e) {
+           e.preventDefault();
+           
+           // Remove active class from all mobile nav links
+           mobileNavLinks.forEach(navLink => {
+             navLink.classList.remove('active');
+           });
+           
+           // Add active class to clicked item
+           this.classList.add('active');
+           
+           // Close mobile menu
+           if (mobileNav) {
+             mobileNav.classList.remove('active');
+             const icon = mobileMenuToggle.querySelector('i');
+             icon.className = 'fas fa-bars';
+           }
+           
+           // Handle page navigation (placeholder for now)
+           const page = this.getAttribute('data-page');
+           console.log('Navigate to:', page);
+         });
+       });
+
+       // Close mobile menu when clicking outside
+       document.addEventListener('click', function(e) {
+         if (mobileNav && mobileMenuToggle) {
+           if (!mobileNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+             mobileNav.classList.remove('active');
+             const icon = mobileMenuToggle.querySelector('i');
+             icon.className = 'fas fa-bars';
+           }
+         }
+       });
+     });
   </script>
 
   <!-- Dashboard Charts -->
